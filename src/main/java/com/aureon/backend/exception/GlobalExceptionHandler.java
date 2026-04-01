@@ -70,7 +70,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleAll(Exception ex) {
         log.error("Unhandled exception", ex);
-        return build(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred.");
+        String message = ex.getMessage() == null || ex.getMessage().isBlank()
+                ? "An unexpected error occurred."
+                : ex.getMessage();
+        return build(HttpStatus.INTERNAL_SERVER_ERROR, message);
     }
 
     // --- Helpers ---
