@@ -237,7 +237,6 @@ Below is the complete lifecycle of an authenticated API request:
 ## 3. Authentication System
 
 ### 3.1 OTP Flow
-
 The system uses a **passwordless, OTP-based** authentication model. No passwords are stored anywhere in the database.
 
 ```
@@ -1035,6 +1034,9 @@ All methods use `@Transactional(readOnly = true)` — the read-only hint allows 
 **Interface:** `EmailService.sendOtp(String email, String otp, int expiryMinutes)`
 
 **Implementation:** `EmailServiceImpl` uses Spring's `JavaMailSender` (backed by `spring-boot-starter-mail`).
+
+<img src="OTP_inbox.png" alt="OTP Inbox" width="400"/>
+
 
 The email body is plain text:
 
