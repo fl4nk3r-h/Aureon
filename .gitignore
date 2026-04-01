@@ -44,3 +44,7 @@ build/
 .env.local
 .env.*.local
 .env.example
+
+### Bootstrap ###
+bootstrap/
+src/main/java/com/aureon/backend/config/AdminBootstrap.java
