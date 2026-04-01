@@ -18,10 +18,10 @@ public class OpenApiConfig {
     public OpenAPI financeOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Finance Dashboard API")
+                        .title("Aureon Dashboard API")
                         .version("v1")
-                        .description("Backend API for the Finance Dashboard — OTP auth, RBAC, financial records, and analytics.")
-                        .contact(new Contact().name("Finance Team")))
+                        .description("Backend API for the Aureon Dashboard — OTP auth, RBAC, financial records, and analytics.")
+                        .contact(new Contact().name("Aureon Team")))
                 .addSecurityItem(new SecurityRequirement().addList(BEARER_SCHEME))
                 .components(new Components()
                         .addSecuritySchemes(BEARER_SCHEME, new SecurityScheme()

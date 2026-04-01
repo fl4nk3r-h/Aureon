@@ -1,4 +1,4 @@
-package com.finance.backend.service.impl;
+package com.aureon.backend.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

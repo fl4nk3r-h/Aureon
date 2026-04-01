@@ -1,4 +1,4 @@
-# Finance Dashboard Backend — Complete Technical Documentation
+# Aureon - Finance Dashboard Backend — Complete Technical Documentation
 
 > **Version:** 1.0.0 | **Stack:** Java 21 · Spring Boot 3.2 · PostgreSQL · JWT · Flyway
 > **Last Updated:** 2025
@@ -69,7 +69,7 @@
 
 ## 1. Project Overview
 
-The Finance Dashboard Backend is a RESTful API service designed to power an internal finance dashboard. It provides:
+The Aureon Finance Dashboard Backend is a RESTful API service designed to power an internal finance dashboard. It provides:
 
 - **Passwordless authentication** via email OTP, issuing JWT tokens on successful verification
 - **Role-based access control** with three distinct roles (VIEWER, ANALYST, ADMIN)
@@ -86,7 +86,7 @@ The system is intentionally designed for **internal/invite-only use**. Users can
 ### 2.1 Package Structure
 
 ```
-com.finance.backend/
+com.aureon.backend/
 │
 ├── config/
 │   ├── AppProperties.java          # Typed config binding (JWT, OTP settings)
@@ -343,8 +343,8 @@ Filter logic:
 | Role | Description | Typical User |
 |---|---|---|
 | `VIEWER` | Read-only access to dashboard summaries | Executive, stakeholder |
-| `ANALYST` | Read dashboard + view full record details | Finance analyst, auditor |
-| `ADMIN` | Full access: create/edit/delete records and manage users | Finance manager, system admin |
+| `ANALYST` | Read dashboard + view full record details | Aureon analyst, auditor |
+| `ADMIN` | Full access: create/edit/delete records and manage users | Aureon manager, system admin |
 
 ### 4.2 Permission Matrix
 
@@ -878,7 +878,7 @@ Soft-delete a user. They can no longer authenticate.
   "notes":      "Q1 office rent payment",
   "createdBy": {
     "id":    1,
-    "email": "admin@finance.dev",
+    "email": "admin@aureon.dev",
     "name":  "System Admin",
     "role":  "ADMIN"
   },
@@ -1095,7 +1095,7 @@ spring:
 
 ```sql
 INSERT INTO users (email, name, role, status)
-VALUES ('admin@finance.dev', 'System Admin', 'ADMIN', 'ACTIVE')
+VALUES ('admin@aureon.dev', 'System Admin', 'ADMIN', 'ACTIVE')
 ON CONFLICT (email) DO NOTHING;
 ```
 
@@ -1281,7 +1281,7 @@ openssl rand -hex 32
 
 ```bash
 git clone <your-repo-url>
-cd finance-backend
+cd aureon-backend
 ```
 
 **Step 2: Create the PostgreSQL database**
@@ -1291,7 +1291,7 @@ psql -U postgres
 ```
 
 ```sql
-CREATE DATABASE finance_db;
+CREATE DATABASE aureon_db;
 \q
 ```
 
@@ -1343,7 +1343,7 @@ http://localhost:8080/swagger-ui.html
 
 ### 12.3 First-Time Login
 
-The Flyway seed migration creates one admin user: `admin@finance.dev`
+The Flyway seed migration creates one admin user: `admin@aureon.dev`
 
 To log in:
 
@@ -1352,7 +1352,7 @@ To log in:
 ```bash
 curl -X POST http://localhost:8080/api/v1/auth/send-otp \
   -H "Content-Type: application/json" \
-  -d '{"email": "admin@finance.dev"}'
+  -d '{"email": "admin@aureon.dev"}'
 ```
 
 1. **Check your inbox** (the email address is seeded but the OTP goes to the Gmail you configured). For first-time testing, you may want to update the seed email to match your real address, or check the application logs if you add a debug log statement to `AuthServiceImpl`.
@@ -1362,7 +1362,7 @@ curl -X POST http://localhost:8080/api/v1/auth/send-otp \
 ```bash
 curl -X POST http://localhost:8080/api/v1/auth/verify-otp \
   -H "Content-Type: application/json" \
-  -d '{"email": "admin@finance.dev", "otp": "YOUR_OTP"}'
+  -d '{"email": "admin@aureon.dev", "otp": "YOUR_OTP"}'
 ```
 
 1. **Copy the token** from the response and use it in subsequent requests:

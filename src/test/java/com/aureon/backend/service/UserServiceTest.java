@@ -1,4 +1,4 @@
-package com.finance.backend.service;
+package com.aureon.backend.service;
 
 import com.aureon.backend.dto.request.UserRequests;
 import com.aureon.backend.dto.response.Responses;
@@ -8,7 +8,8 @@ import com.aureon.backend.enums.UserStatus;
 import com.aureon.backend.exception.ConflictException;
 import com.aureon.backend.exception.ResourceNotFoundException;
 import com.aureon.backend.repository.UserRepository;
-import com.finance.backend.service.impl.UserServiceImpl;
+import com.aureon.backend.service.impl.UserServiceImpl;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

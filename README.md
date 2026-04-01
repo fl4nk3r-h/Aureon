@@ -1,4 +1,4 @@
-# Finance Dashboard Backend
+# Aureon - Finance Dashboard Backend
 
 A production-structured Spring Boot 3 backend for a finance dashboard system with email OTP authentication, role-based access control, financial record management, and analytics APIs.
 
@@ -21,7 +21,7 @@ A production-structured Spring Boot 3 backend for a finance dashboard system wit
 ## Architecture Overview
 
 ```
-com.finance.backend
+com.aureon.backend
 ├── config/          # Security, JPA auditing, OpenAPI, app properties
 ├── controller/      # REST controllers (versioned under /api/v1/)
 ├── dto/
@@ -193,7 +193,7 @@ Flyway will automatically create all tables and seed the initial admin user on f
 **Initial admin credentials:**
 
 ```
-Email: admin@finance.dev
+Email: admin@aureon.dev
 ```
 
 Send an OTP to this address to log in as admin, then create other users.
@@ -255,7 +255,7 @@ Both `User` and `FinancialRecord` support soft deletion. Deleted records set a `
 ```
 src/
 ├── main/
-│   ├── java/com/finance/backend/
+│   ├── java/com/aureon/backend/
 │   │   ├── config/           AppProperties, JpaConfig, OpenApiConfig, SecurityConfig
 │   │   ├── controller/       AuthController, UserController, FinancialRecordController, DashboardController
 │   │   ├── dto/              Request and Response records
@@ -270,6 +270,6 @@ src/
 │       ├── application.yml
 │       └── db/migration/     V1__initial_schema.sql, V2__seed_admin.sql
 └── test/
-    ├── java/com/finance/backend/service/   Unit tests
+    ├── java/com/aureon/backend/service/   Unit tests
     └── resources/application.yml          H2 test config
 ```

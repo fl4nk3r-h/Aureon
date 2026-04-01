@@ -1,4 +1,4 @@
-package com.finance.backend.service;
+package com.aureon.backend.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

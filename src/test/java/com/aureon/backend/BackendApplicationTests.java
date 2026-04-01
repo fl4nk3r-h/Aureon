@@ -1,4 +1,4 @@
-package com.finance.backend;
+package com.aureon.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

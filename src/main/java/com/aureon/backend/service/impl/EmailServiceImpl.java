@@ -20,7 +20,7 @@ public class EmailServiceImpl implements EmailService {
         try {
             var message = new SimpleMailMessage();
             message.setTo(toEmail);
-            message.setSubject("Your Finance Dashboard OTP");
+            message.setSubject("Your Aureon Dashboard OTP");
             message.setText(buildEmailBody(otp, expiryMinutes));
             mailSender.send(message);
             log.info("OTP email sent to {}", toEmail);
@@ -35,7 +35,7 @@ public class EmailServiceImpl implements EmailService {
         return """
                 Hello,
 
-                Your Finance Dashboard login code is:
+                Your Aureon Dashboard login code is:
 
                   %s
 
@@ -43,7 +43,7 @@ public class EmailServiceImpl implements EmailService {
 
                 If you did not request this, please ignore this email.
 
-                — Finance Dashboard
+                — Aureon Dashboard
                 """.formatted(otp, expiryMinutes);
     }
 }
